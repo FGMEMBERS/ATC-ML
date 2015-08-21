@@ -53,11 +53,11 @@ var MP_Status = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/MP-Status"
 var MP_Status_temp = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/MP-Status-temp", " ");
 var CMD_job = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-job", " ");
 setprop("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-job", "ATC");
-var CMD_UID = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID"," ");
-var CMD_UID_a = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_a"," ");
-var CMD_UID_b = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_b"," ");
-var CMD_UID_c = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_c"," ");
-var CMD_UID_d = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_d"," ");
+var CMD_UID = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID","");
+var CMD_UID_a = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_a","");
+var CMD_UID_b = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_b","");
+var CMD_UID_c = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_c","");
+var CMD_UID_d = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_d","");
 CMD_UID_d.setValue(" ");
 var CMD_UID_sa = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_sa",1);
 var CMD_UID_sb = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_sb",1);
@@ -103,7 +103,7 @@ var RAD_new = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MPinRW/RAD-new"
 var RAD_old = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MPinRW/RAD-old", 1);
 var ICAO_Status = props.globals.getNode("/sim/gui/dialogs/ATC-ML/ATC-MPinRW/ICAO-Status", " ");
 ICAO_Status.setValue("actual");
-var LANGdat = getprop("/sim/fg-root")~"/Aircraft/ATC-ML/ATCmsg/Languages.txt";
+var LANGdat = resolvepath ("Aircraft/ATC-ML/ATCmsg/Languages.txt");
 var LANGfile = "";
 
 # new Dialog-Modules --   je
@@ -247,7 +247,6 @@ var update_UID = func() {
 	CMD_UID_b.setValue(getprop("/sim/tower/airport-id")~"-"~getprop("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-job"));
 	CMD_UID_c.setValue(getprop("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-UID_d")~"_"~getprop("/sim/tower/airport-id")~"-"~getprop("/sim/gui/dialogs/ATC-ML/ATC-MP/CMD-job"));
 
-	CMD_UID.getValue(" ");
 	if (CMD_UID_sa.getValue()==1) {
 		CMD_UID.setValue(CMD_UID_a.getValue());
 	} else {	

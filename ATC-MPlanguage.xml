@@ -36,5 +36,3 @@
       <binding><command>dialog-close</command></binding></button>
   </group>
 </PropertyList>
-	<modal>false</modal>
-	<x>1</x><y>1</y>
